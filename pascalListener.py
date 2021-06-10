@@ -17,6 +17,15 @@ class pascalListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by pascalParser#infoPart.
+    def enterInfoPart(self, ctx:pascalParser.InfoPartContext):
+        pass
+
+    # Exit a parse tree produced by pascalParser#infoPart.
+    def exitInfoPart(self, ctx:pascalParser.InfoPartContext):
+        pass
+
+
     # Enter a parse tree produced by pascalParser#variableDeclarationPart.
     def enterVariableDeclarationPart(self, ctx:pascalParser.VariableDeclarationPartContext):
         pass

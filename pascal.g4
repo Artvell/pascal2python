@@ -1,7 +1,10 @@
 grammar pascal;
 
 program:
-    variableDeclarationPart block DOT;
+    (infoPart)? (variableDeclarationPart)? block DOT;
+
+infoPart:
+    'program' .+? SEMI;
 
 variableDeclarationPart:
     'var' variableDeclaration (SEMI variableDeclaration)* SEMI;
@@ -64,6 +67,7 @@ whileStatement:
 
 blockBody:
     statement;
+
 
 SEMI: ';';
 COLON: ':';

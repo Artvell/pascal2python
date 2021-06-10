@@ -11,7 +11,7 @@ from pascalParser import pascalParser
 
 KEYWORDS = (
     'var', 'integer', 'int64',
-    'begin', 'end',
+    'begin', 'end', 'program',
     'readln', 'writeln',
     'mod', 'div', 'or', 'and',
     'if', 'then', 'else', 'while', 'do',
@@ -22,6 +22,10 @@ class Listener(pascalListener):
     def __init__(self):
         self.var_ls = {}
         self.spaces = -4
+    
+    def exitInfoPart(self, ctx: pascalParser.InfoPartContext):
+        text = ctx.getText().split("program")[-1]
+        self._print(f"#program {text}")
 
     def exitVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
         var_type = ctx.varType().getText()
@@ -111,7 +115,7 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         main(sys.argv[1])
     else:
-        # main('test1.pas')
+        main('test5.pas')
         # main('test2.pas')
         # main('test3.pas')
-        main('test4.pas')
+        #main('test4.pas')
